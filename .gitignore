@@ -1,0 +1,20 @@
+# 依赖与构建产物
+node_modules/
+miniprogram/dist/
+miniprogram/node_modules/
+backend/node_modules/
+
+# CloudBase 云函数部署时由 scripts/prepare-functions.js 生成的副本
+cloudfunctions/*/common/
+cloudfunctions/*/node_modules/
+
+# 日志与本地缓存
+*.log
+.DS_Store
+
+# 小程序上传代码密钥（敏感，禁止入库）
+miniprogram/upload.key
+**/upload.key
+
+# 云端配置含密钥占位符，忽略以防泄露
+cloudbaserc.json

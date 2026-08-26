@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-labelledby="title">
+  <title id="title">volume</title>
+<path d="M4.5 10h3l4-3.5v11l-4-3.5h-3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M15.2 9a4.5 4.5 0 0 1 0 6M17.8 6.5a8 8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

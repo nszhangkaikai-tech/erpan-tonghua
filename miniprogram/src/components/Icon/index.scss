@@ -1,0 +1,18 @@
+/**
+ * Icon 组件样式 — 内联 SVG（lucide）版本
+ * 实际图标是 View 的 background-image data URI，由组件注入 style。
+ * 这里只保留对齐/排版的钩子类。
+ */
+
+.bm-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+// 行内「文字 + 图标」对齐辅助类：用于替换原先 <Text> 内嵌图标的写法
+.icon-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+}

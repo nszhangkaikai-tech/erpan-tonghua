@@ -1,0 +1,443 @@
+@import '../../styles/tokens.scss';
+
+.player {
+  min-height: 100vh;
+  background: $zinc-50;
+  padding: 24rpx;
+  padding-bottom: 160rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  // ===== 顶部导航（由 NavBar 组件实现，页面内无自定义 header） =====
+
+  &--empty {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__empty-text {
+    font-size: 24rpx;
+    color: $zinc-400;
+  }
+
+  // ===== 封面 =====
+  &__cover-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24rpx;
+  }
+
+  &__cover {
+    position: relative;
+    width: 420rpx;
+    height: 420rpx;
+    border-radius: 36rpx;
+    overflow: hidden;
+    border: 6rpx solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
+  }
+
+  &__cover-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__cover-placeholder {
+    width: 100%;
+    height: 100%;
+    background: $zinc-200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__cover-placeholder-text {
+    font-size: 100rpx;
+  }
+
+  &__voice-badge {
+    position: absolute;
+    top: 16rpx;
+    left: 16rpx;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8rpx 16rpx;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    gap: 6rpx;
+  }
+
+  &__voice-badge-icon {
+    font-size: 18rpx;
+  }
+
+  &__voice-badge-text {
+    display: flex;
+    align-items: center;
+    gap: 4rpx;
+    font-size: 16rpx;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  &__voice-badge--fallback {
+    top: auto;
+    bottom: 16rpx;
+    left: 16rpx;
+    background: rgba(180, 130, 30, 0.85);
+  }
+  &__chapter-badge {
+    position: absolute;
+    bottom: 16rpx;
+    right: 16rpx;
+    background: rgba(9, 9, 11, 0.9);
+    padding: 4rpx 16rpx;
+    border-radius: $radius-full;
+  }
+
+  &__chapter-badge-text {
+    font-size: 16rpx;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  // ===== 标题信息 =====
+  &__info {
+    text-align: center;
+    margin-bottom: 20rpx;
+  }
+
+  &__title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: 700;
+    color: $zinc-900;
+    margin-bottom: 8rpx;
+  }
+
+  &__goal-tag {
+    display: inline-block;
+    background: rgba($zinc-200, 0.55);
+    padding: 4rpx 16rpx;
+    border-radius: 8rpx;
+  }
+
+  &__goal-text {
+    display: flex;
+    align-items: center;
+    gap: 6rpx;
+    font-size: 20rpx;
+    color: $zinc-600;
+    font-weight: 700;
+  }
+
+  // ===== 章节文本 =====
+  &__text-card {
+    background: #fff;
+    padding: 24rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid rgba($zinc-200, 0.6);
+    margin-bottom: 20rpx;
+    max-height: 200rpx;
+  }
+
+  &__text-scroll {
+    max-height: 160rpx;
+  }
+
+  &__text {
+    font-size: 22rpx;
+    color: $zinc-600;
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  // ===== 进度条 =====
+  &__progress {
+    margin-bottom: 24rpx;
+  }
+
+  &__progress-bar {
+    width: 100%;
+    height: 8rpx;
+    background: $zinc-200;
+    border-radius: 4rpx;
+    overflow: hidden;
+    margin-bottom: 8rpx;
+  }
+
+  &__progress-fill {
+    height: 100%;
+    background: $primary-500;
+    border-radius: 4rpx;
+    transition: width 0.3s;
+  }
+
+  &__progress-time {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__progress-text {
+    font-size: 18rpx;
+    color: $zinc-400;
+    font-family: monospace;
+  }
+
+  // ===== 播放控制 =====
+  &__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48rpx;
+    margin-bottom: 24rpx;
+  }
+
+  &__ctrl-btn {
+    padding: 16rpx;
+    transition: all 0.2s;
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  &__ctrl-prev {
+    width: 0;
+    height: 0;
+    border-right: 20rpx solid $zinc-500;
+    border-top: 14rpx solid transparent;
+    border-bottom: 14rpx solid transparent;
+  }
+
+  &__ctrl-next {
+    width: 0;
+    height: 0;
+    border-left: 20rpx solid $zinc-500;
+    border-top: 14rpx solid transparent;
+    border-bottom: 14rpx solid transparent;
+  }
+
+  &__ctrl-play {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+    background: $primary-500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+
+    &:active {
+      background: $zinc-900;
+    }
+  }
+
+  &__ctrl-play-icon {
+    width: 0;
+    height: 0;
+    border-left: 28rpx solid #fff;
+    border-top: 18rpx solid transparent;
+    border-bottom: 18rpx solid transparent;
+    margin-left: 6rpx;
+  }
+
+  &__ctrl-pause {
+    display: flex;
+    gap: 8rpx;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 8rpx;
+      height: 32rpx;
+      background: #fff;
+      border-radius: 2rpx;
+    }
+  }
+
+  // ===== 背景音乐 =====
+  &__bgm {
+    background: rgba($zinc-100, 0.8);
+    padding: 20rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid rgba($zinc-200, 0.5);
+    margin-bottom: 20rpx;
+  }
+
+  &__bgm-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14rpx;
+  }
+
+  &__bgm-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+  }
+
+  &__bgm-title {
+    font-size: 24rpx;
+    color: $zinc-500;
+    font-weight: 700;
+  }
+
+  &__bgm-current {
+    font-size: 24rpx;
+    color: $zinc-900;
+    font-weight: 700;
+  }
+
+  &__bgm-scroll {
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  &__bgm-track {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4rpx 2rpx;
+  }
+
+  &__bgm-chip {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 14rpx;
+    padding: 16rpx 28rpx;
+    border-radius: $radius-full;
+    background: #fff;
+    border: 1rpx solid rgba($zinc-200, 0.6);
+    transition: all 0.2s;
+
+    &--active {
+      background: $primary-500;
+      border-color: $primary-500;
+
+      .player__bgm-chip-text {
+        color: #fff;
+      }
+    }
+  }
+
+  &__bgm-chip-text {
+    font-size: 22rpx;
+    color: $zinc-600;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-left: 8rpx;
+  }
+
+  &__bgm-volume {
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+    margin-top: 16rpx;
+    padding: 12rpx 16rpx;
+    background: #fff;
+    border: 1rpx solid rgba($zinc-200, 0.6);
+    border-radius: $radius-full;
+  }
+
+  &__bgm-volume-label,
+  &__bgm-volume-value {
+    flex-shrink: 0;
+    font-size: 20rpx;
+    color: $zinc-500;
+    font-weight: 700;
+  }
+
+  &__bgm-slider {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+  }
+
+  &__bgm-volume-value {
+    min-width: 56rpx;
+    color: $zinc-400;
+    text-align: right;
+  }
+
+  // ===== 底部操作栏 =====
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 20rpx 24rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid rgba($zinc-200, 0.6);
+    box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.03);
+  }
+
+  &__timer {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+  }
+
+  &__timer-icon {
+    font-size: 24rpx;
+  }
+
+  &__timer-picker {
+    padding: 4rpx 8rpx;
+  }
+
+  &__timer-text {
+    font-size: 20rpx;
+    color: $zinc-900;
+    font-weight: 700;
+  }
+
+  &__timer-count {
+    background: $zinc-100;
+    padding: 2rpx 8rpx;
+    border-radius: 6rpx;
+  }
+
+  &__timer-count-text {
+    font-size: 16rpx;
+    color: $zinc-600;
+    font-family: monospace;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: 6rpx;
+  }
+
+  &__action-icon {
+    font-size: 24rpx;
+  }
+
+  &__action-text {
+    font-size: 20rpx;
+    color: $zinc-800;
+    font-weight: 700;
+  }
+
+  &__share-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6rpx;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    line-height: normal;
+    font-size: 20rpx;
+    font-weight: 700;
+    color: $zinc-800;
+
+    &::after {
+      border: none;
+    }
+  }
+}

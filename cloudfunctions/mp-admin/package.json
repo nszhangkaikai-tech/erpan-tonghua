@@ -1,0 +1,9 @@
+{
+  "name": "mp-admin",
+  "version": "1.0.0",
+  "description": "管理端云函数（登录/模板/安全词/统计）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

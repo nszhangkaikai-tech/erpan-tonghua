@@ -1,0 +1,557 @@
+@import '../../styles/tokens.scss';
+
+.home {
+  min-height: 100vh;
+  background: $zinc-50;
+  padding: 24rpx 24rpx 160rpx;
+  box-sizing: border-box;
+
+  // ========== 欢迎卡片（可爱童话风） ==========
+  &__welcome {
+    position: relative;
+    border-radius: $radius-3xl;
+    overflow: hidden;
+    margin-top: 24rpx;
+    margin-bottom: 24rpx;
+    // 可爱童话底图（小狐狸+猫头鹰+月亮星空）
+    background-image: url('../../assets/welcome-bg.jpeg');
+    background-size: cover;
+    background-position: center bottom;
+    box-shadow:
+      0 8rpx 32rpx rgba(108, 142, 239, 0.22),
+      0 2rpx 8rpx rgba(79, 115, 230, 0.12);
+    border: 2rpx solid rgba(179, 201, 251, 0.6);
+  }
+
+  &__welcome-overlay {
+    position: absolute;
+    inset: 0;
+    // 极淡的蓝白渐变遮罩——保证文字可读但不遮挡底图的童话感
+    background: linear-gradient(
+      180deg,
+      rgba(238, 244, 255, 0.55) 0%,
+      rgba(245, 248, 255, 0.35) 40%,
+      rgba(230, 238, 255, 0.25) 100%
+    );
+    pointer-events: none;
+  }
+
+  &__welcome-content {
+    position: relative;
+    z-index: 1;
+    padding: 32rpx 28rpx;
+  }
+
+  &__welcome-header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__welcome-greeting {
+    display: block;
+    font-size: 22rpx;
+    color: $zinc-800;
+    font-weight: 600;
+  }
+
+  &__welcome-sub {
+    display: block;
+    font-size: 28rpx;
+    color: $zinc-950;
+    font-weight: 800;
+    margin-top: 4rpx;
+    letter-spacing: 1rpx;
+  }
+
+  // 额度栏
+  &__quota {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24rpx;
+    padding-top: 20rpx;
+    border-top: 1rpx solid rgba(79, 115, 230, 0.12);
+  }
+
+  &__quota-items {
+    display: flex;
+    gap: 32rpx;
+  }
+
+  &__quota-item {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__quota-label {
+    font-size: 20rpx;
+    color: $zinc-500;
+  }
+
+  &__quota-value {
+    font-size: 22rpx;
+    color: $zinc-950;
+    font-weight: 800;
+  }
+
+  &__quota-btn {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4rpx);
+    padding: 10rpx 22rpx;
+    border-radius: $radius-lg;
+    box-shadow: 0 2rpx 8rpx rgba(79, 115, 230, 0.15);
+    transition: all 0.2s;
+
+    &:active {
+      background: #fff;
+      transform: scale(0.95);
+    }
+  }
+
+  &__quota-btn-text {
+    font-size: 18rpx;
+    color: $zinc-900;
+    font-weight: 800;
+  }
+
+  // ========== 最新消息 ==========
+  &__notification {
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+    min-height: 76rpx;
+    margin-bottom: 24rpx;
+    padding: 0 16rpx 0 20rpx;
+    box-sizing: border-box;
+    background: #fffdf3;
+    border: 1rpx solid #fde68a;
+    border-radius: $radius-3xl;
+    overflow: hidden;
+  }
+
+  &__notification-dot {
+    width: 14rpx;
+    height: 14rpx;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #f59e0b;
+  }
+
+  &__notification-label {
+    flex-shrink: 0;
+    font-size: 22rpx;
+    color: #c2410c;
+    font-weight: 800;
+  }
+
+  &__notification-content {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 22rpx;
+    color: $zinc-700;
+    font-weight: 600;
+  }
+
+  &__notification-btn {
+    flex-shrink: 0;
+    padding: 10rpx 18rpx;
+    border-radius: $radius-xl;
+    background: #fef3c7;
+  }
+
+  &__notification-btn-text {
+    font-size: 20rpx;
+    color: #92400e;
+    font-weight: 800;
+  }
+
+  // ========== 功能入口 ==========
+  &__actions {
+    display: flex;
+    gap: 20rpx;
+    margin-bottom: 24rpx;
+  }
+
+  &__action-card {
+    flex: 1;
+    background: #fff;
+    padding: 28rpx;
+    border-radius: $radius-3xl;
+    border: 1rpx solid rgba($zinc-200, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 176rpx;
+    box-sizing: border-box;
+    transition: all 0.2s;
+
+    &:active {
+      background: $zinc-50;
+      transform: scale(0.98);
+    }
+  }
+
+  &__action-icon {
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: $radius-xl;
+    background: $zinc-100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__action-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+  }
+
+  &__action-desc {
+    display: block;
+    font-size: 18rpx;
+    color: $zinc-400;
+    margin-top: 4rpx;
+  }
+
+  // ========== 最近播放 ==========
+  &__recent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $zinc-100;
+    padding: 20rpx 24rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid rgba($zinc-200, 0.5);
+    margin-bottom: 24rpx;
+  }
+
+  &__recent-left {
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__recent-cover {
+    width: 72rpx;
+    height: 72rpx;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: $zinc-200;
+  }
+
+  &__recent-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__recent-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $zinc-200;
+  }
+
+  &__recent-placeholder-text {
+    font-size: 28rpx;
+  }
+
+  &__recent-label {
+    display: block;
+    font-size: 18rpx;
+    color: $zinc-500;
+    font-weight: 700;
+  }
+
+  &__recent-title {
+    display: block;
+    font-size: 24rpx;
+    color: $zinc-900;
+    font-weight: 700;
+    @include text-truncate;
+    max-width: 320rpx;
+  }
+
+  &__recent-play {
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 50%;
+    background: $primary-500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+
+    &:active {
+      background: $primary-600;
+    }
+  }
+
+  &__recent-play-icon {
+    width: 0;
+    height: 0;
+    border-left: 16rpx solid #fff;
+    border-top: 10rpx solid transparent;
+    border-bottom: 10rpx solid transparent;
+    margin-left: 4rpx;
+  }
+
+  // ========== 推荐模板 ==========
+  &__templates {
+    margin-bottom: 24rpx;
+  }
+
+  &__templates-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16rpx;
+  }
+
+  &__templates-title {
+    display: flex;
+    align-items: center;
+    gap: 6rpx;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+  }
+
+  &__templates-more {
+    display: flex;
+    align-items: center;
+    gap: 4rpx;
+  }
+
+  &__templates-more-text {
+    font-size: 20rpx;
+    color: $zinc-900;
+    font-weight: 700;
+  }
+
+  &__templates-more-arrow {
+    font-size: 24rpx;
+    color: $zinc-900;
+    font-weight: 700;
+  }
+
+  &__templates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16rpx;
+  }
+
+  // 模板卡片
+  &__tpl-card {
+    display: flex;
+    gap: 20rpx;
+    background: #fff;
+    padding: 20rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid rgba($zinc-200, 0.6);
+    transition: all 0.2s;
+
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+
+  &__tpl-cover {
+    width: 120rpx;
+    height: 152rpx;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: $zinc-100;
+    border: 1rpx solid $zinc-100;
+  }
+
+  &__tpl-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__tpl-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__tpl-placeholder-text {
+    font-size: 40rpx;
+  }
+
+  &__tpl-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  &__tpl-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+  }
+
+  &__tpl-name {
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+    @include text-truncate;
+  }
+
+  &__tpl-age {
+    background: $zinc-100;
+    padding: 2rpx 10rpx;
+    border-radius: 6rpx;
+    flex-shrink: 0;
+  }
+
+  &__tpl-age-text {
+    font-size: 16rpx;
+    color: $zinc-800;
+    font-weight: 700;
+  }
+
+  &__tpl-desc {
+    display: block;
+    font-size: 18rpx;
+    color: $zinc-500;
+    margin-top: 6rpx;
+    line-height: 1.5;
+    @include text-clamp-2;
+  }
+
+  &__tpl-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12rpx;
+  }
+
+  &__tpl-count {
+    display: flex;
+    align-items: center;
+    gap: 4rpx;
+    font-size: 16rpx;
+    color: $zinc-400;
+  }
+
+  &__tpl-use {
+    background: $primary-500;
+    padding: 6rpx 16rpx;
+    border-radius: $radius-lg;
+    transition: all 0.2s;
+
+    &:active {
+      background: $primary-600;
+    }
+  }
+
+  &__tpl-use-text {
+    font-size: 18rpx;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  // ========== 邀请推广 ==========
+  &__invite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $zinc-100;
+    padding: 24rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid $zinc-200;
+    margin-bottom: 24rpx;
+    transition: all 0.2s;
+
+    &:active {
+      background: rgba($zinc-200, 0.5);
+    }
+  }
+
+  &__invite-left {
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+  }
+
+  &__invite-icon {
+    font-size: 40rpx;
+  }
+
+  &__invite-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+  }
+
+  &__invite-desc {
+    display: block;
+    font-size: 18rpx;
+    color: $zinc-400;
+  }
+
+  &__invite-arrow {
+    font-size: 32rpx;
+    color: $zinc-900;
+    font-weight: 700;
+  }
+
+  // ========== 通知铃铛 ==========
+  &__bell {
+    position: fixed;
+    top: 20rpx;
+    left: 24rpx;
+    right: auto;
+    z-index: 50;
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1rpx solid rgba($zinc-200, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+  }
+
+  &__bell-icon {
+    font-size: 32rpx;
+  }
+
+  &__bell-badge {
+    position: absolute;
+    top: -8rpx;
+    right: -8rpx;
+    background: $red-500;
+    min-width: 28rpx;
+    height: 28rpx;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__bell-count {
+    font-size: 16rpx;
+    color: #fff;
+    font-weight: 700;
+  }
+}

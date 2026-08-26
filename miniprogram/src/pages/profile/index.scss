@@ -1,0 +1,192 @@
+@import '../../styles/tokens.scss';
+
+.profile {
+  min-height: 100vh;
+  background: #fff;
+  box-sizing: border-box;
+
+  // 内容区（NavBar 全宽，内容带 padding）
+  &__content {
+    padding: 24rpx;
+  }
+
+  // ========== 说明卡片 ==========
+  &__intro {
+    background: $zinc-100;
+    padding: 20rpx 28rpx;
+    border-radius: $radius-xl;
+    margin-bottom: 32rpx;
+  }
+
+  &__intro-text {
+    font-size: 22rpx;
+    color: $zinc-500;
+    line-height: 1.6;
+  }
+
+  // ========== 表单 ==========
+  &__form {
+    margin-bottom: 40rpx;
+  }
+
+  &__field {
+    margin-bottom: 28rpx;
+
+    &--half {
+      flex: 1;
+      margin-bottom: 0;
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: 20rpx;
+    margin-bottom: 28rpx;
+  }
+
+  &__label {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+    margin-bottom: 12rpx;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    height: 76rpx;
+    min-height: 76rpx;
+    background: #fff;
+    border: 1rpx solid $zinc-200;
+    border-radius: $radius-xl;
+    padding: 20rpx 24rpx;
+    font-size: 24rpx;
+    color: $zinc-900;
+    box-sizing: border-box;
+    line-height: 1.4;
+    overflow: hidden;
+
+    &:focus {
+      border-color: $primary-500;
+    }
+  }
+
+  // Picker
+  &__picker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border: 1rpx solid $zinc-200;
+    border-radius: $radius-xl;
+    padding: 20rpx 24rpx;
+
+    &--time {
+      cursor: pointer;
+    }
+  }
+
+  &__picker-text {
+    font-size: 24rpx;
+    color: $zinc-900;
+  }
+
+  // 细线下拉箭头（chevron）
+  &__picker-chevron {
+    width: 14rpx;
+    height: 14rpx;
+    border-right: 2rpx solid $zinc-500;
+    border-bottom: 2rpx solid $zinc-500;
+    transform: rotate(45deg);
+    margin-top: -6rpx;
+  }
+
+  // 性别选择（两个独立按钮，选中黑底白字）
+  &__gender {
+    display: flex;
+    gap: 16rpx;
+  }
+
+  &__gender-btn {
+    flex: 1;
+    padding: 18rpx 0;
+    text-align: center;
+    border-radius: $radius-xl;
+    border: 1rpx solid $zinc-200;
+    background: #fff;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-500;
+    transition: all 0.2s;
+    box-sizing: border-box;
+
+    &--active {
+      background: $primary-500;
+      border-color: $primary-500;
+      color: #fff;
+      box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // 兴趣标签
+  &__interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16rpx;
+    padding-top: 8rpx;
+  }
+
+  &__interest {
+    padding: 14rpx 28rpx;
+    border-radius: $radius-full;
+    border: 1rpx solid $zinc-200;
+    background: #fff;
+    transition: all 0.2s;
+
+    &--active {
+      background: #fff;
+      border-color: $zinc-900;
+      border-width: 2rpx;
+
+      .profile__interest-text {
+        color: $zinc-950;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__interest-text {
+    font-size: 22rpx;
+    color: $zinc-500;
+    font-weight: 500;
+  }
+
+  // ========== 提交 ==========
+  &__submit {
+    padding-top: 16rpx;
+    padding-bottom: 160rpx;
+  }
+
+  &__submit-btn {
+    width: 100%;
+    background: $primary-500;
+    color: #fff;
+    border: none;
+    border-radius: $radius-xl;
+    padding: 24rpx 0;
+    font-size: 26rpx;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+
+    &:active {
+      background: $zinc-900;
+    }
+
+    &::after {
+      border: none;
+    }
+  }
+}

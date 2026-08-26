@@ -1,0 +1,496 @@
+@import '../../styles/tokens.scss';
+
+.studio {
+  min-height: 100vh;
+  background: $zinc-50;
+  padding: 24rpx 24rpx 40rpx;
+  box-sizing: border-box;
+
+  &__scroll {
+    flex: 1;
+  }
+
+  &__scroll-inner {
+    padding: 20rpx 24rpx 160rpx;
+  }
+
+  // ===== 说明卡片 =====
+  &__intro {
+    background: $zinc-100;
+    padding: 28rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid rgba($zinc-200, 0.6);
+    margin-bottom: 24rpx;
+  }
+
+  &__intro-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+    margin-bottom: 8rpx;
+  }
+
+  &__intro-text {
+    display: block;
+    font-size: 20rpx;
+    color: $zinc-500;
+    line-height: 1.6;
+    margin-bottom: 8rpx;
+  }
+
+  &__intro-bold {
+    font-weight: 700;
+  }
+
+  &__intro-warn {
+    display: flex;
+    align-items: flex-start;
+    gap: 8rpx;
+    font-size: 18rpx;
+    color: $zinc-600;
+    font-weight: 600;
+  }
+
+  // ===== 录音面板 =====
+  &__panel {
+    background: #fff;
+    padding: 28rpx;
+    border-radius: $radius-3xl;
+    border: 1rpx solid rgba($zinc-200, 0.8);
+    margin-bottom: 24rpx;
+    box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.03);
+  }
+
+  &__panel-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+    margin-bottom: 20rpx;
+  }
+
+  &__form-row {
+    margin-bottom: 20rpx;
+  }
+
+  &__form-field {
+    margin-bottom: 20rpx;
+  }
+
+  &__form-label {
+    display: block;
+    font-size: 20rpx;
+    color: $zinc-400;
+    margin-bottom: 8rpx;
+  }
+
+  &__form-input {
+    display: block;
+    width: 100%;
+    height: 72rpx;
+    min-height: 72rpx;
+    background: $zinc-50;
+    border: 1rpx solid $zinc-200;
+    border-radius: $radius-xl;
+    padding: 16rpx 24rpx;
+    font-size: 22rpx;
+    color: $zinc-900;
+    box-sizing: border-box;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+
+  // 说话人类型
+  &__speaker-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12rpx;
+  }
+
+  &__speaker-type {
+    padding: 10rpx 20rpx;
+    border-radius: $radius-xl;
+    border: 1rpx solid $zinc-200;
+    background: $zinc-50;
+    transition: all 0.2s;
+
+    &--active {
+      background: $primary-500;
+      border-color: $primary-500;
+
+      .studio__speaker-type-text {
+        color: #fff;
+      }
+    }
+  }
+
+  &__speaker-type-text {
+    font-size: 20rpx;
+    color: $zinc-700;
+    font-weight: 500;
+  }
+
+  // 示范文本
+  &__sample {
+    background: $zinc-50;
+    padding: 20rpx;
+    border-radius: $radius-xl;
+    border: 1rpx dashed $zinc-200;
+    margin-bottom: 24rpx;
+  }
+
+  &__sample-label {
+    display: block;
+    font-size: 18rpx;
+    color: $zinc-400;
+    font-weight: 700;
+    margin-bottom: 8rpx;
+  }
+
+  &__sample-text {
+    display: block;
+    font-size: 22rpx;
+    color: $zinc-900;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  // 醒目引导：理想朗读时长窗口
+  &__sample-tip {
+    display: flex;
+    align-items: center;
+    gap: 14rpx;
+    background: rgba(7, 193, 96, 0.10);
+    border: 1rpx solid rgba(7, 193, 96, 0.35);
+    border-radius: $radius-lg;
+    padding: 14rpx 16rpx;
+    margin: 10rpx 0 14rpx;
+  }
+
+  &__sample-tip-icon {
+    font-size: 30rpx;
+    line-height: 1;
+  }
+
+  &__sample-tip-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__sample-tip-title {
+    font-size: 22rpx;
+    font-weight: 800;
+    color: $wechat-green;
+  }
+
+  &__sample-tip-sub {
+    font-size: 18rpx;
+    color: $zinc-600;
+    line-height: 1.4;
+    margin-top: 2rpx;
+  }
+
+  &__sample-foot {
+    display: block;
+    font-size: 18rpx;
+    color: $zinc-400;
+    margin-top: 10rpx;
+  }
+
+  // 录音中
+  &__recording {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20rpx 0;
+  }
+
+  &__recording-status {
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+    margin-bottom: 20rpx;
+  }
+
+  &__recording-dot {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background: $red-500;
+    animation: pulse 1s ease-in-out infinite;
+  }
+
+  &__recording-text {
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $red-600;
+  }
+
+  &__wave {
+    display: flex;
+    align-items: flex-end;
+    gap: 6rpx;
+    height: 64rpx;
+    margin-bottom: 20rpx;
+  }
+
+  &__wave-bar {
+    width: 6rpx;
+    background: $red-500;
+    border-radius: 3rpx;
+    animation: wave 0.8s ease-in-out infinite;
+
+    @for $i from 1 through 16 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.05}s;
+      }
+    }
+  }
+
+  // 录音时长进度条（5~15 秒窗口可视化）
+  &__recording-progress {
+    position: relative;
+    width: 100%;
+    height: 12rpx;
+    background: $zinc-200;
+    border-radius: 6rpx;
+    overflow: hidden;
+    margin-bottom: 12rpx;
+  }
+
+  &__recording-progress-bar {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    background: $wechat-green;
+    border-radius: 6rpx;
+    transition: width 1s linear;
+  }
+
+  // 理想窗口绿色高亮带（8~12 秒）
+  &__recording-progress-ideal {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(7, 193, 96, 0.22);
+    border-left: 2rpx dashed rgba(7, 193, 96, 0.55);
+    border-right: 2rpx dashed rgba(7, 193, 96, 0.55);
+    z-index: 0;
+  }
+
+  &__recording-progress-mark {
+    position: absolute;
+    top: -4rpx;
+    z-index: 2;
+    width: 2rpx;
+    height: 20rpx;
+    background: $zinc-400;
+  }
+
+  &__recording-hint {
+    font-size: 20rpx;
+    color: $zinc-500;
+    margin-bottom: 16rpx;
+    text-align: center;
+  }
+
+  &__recorded-warn {
+    font-size: 20rpx;
+    color: $red-600;
+    margin: 8rpx 0;
+    text-align: center;
+  }
+
+  &__recorded-ok {
+    font-size: 20rpx;
+    font-weight: 700;
+    color: $wechat-green;
+    background: rgba(7, 193, 96, 0.10);
+    border-radius: $radius-md;
+    padding: 8rpx 12rpx;
+    margin: 8rpx 0;
+    text-align: center;
+  }
+
+  &__recording-btn {
+    background: $primary-500;
+    padding: 12rpx 32rpx;
+    border-radius: $radius-full;
+    transition: all 0.2s;
+
+    &:active {
+      background: $zinc-900;
+    }
+  }
+
+  &__recording-btn-text {
+    font-size: 22rpx;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  // 开始录音
+  &__record-start {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__record-btn {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    background: $primary-500;
+    padding: 20rpx 40rpx;
+    border-radius: $radius-full;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+
+    &:active {
+      background: $zinc-900;
+    }
+  }
+
+  &__record-btn-icon {
+    font-size: 28rpx;
+  }
+
+  &__record-btn-text {
+    font-size: 24rpx;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  // 录音完成
+  &__recorded {
+    background: $zinc-50;
+    padding: 24rpx;
+    border-radius: $radius-xl;
+    border: 1rpx solid $zinc-200;
+    text-align: center;
+  }
+
+  &__recorded-text {
+    display: block;
+    font-size: 24rpx;
+    color: $zinc-900;
+    font-weight: 700;
+    margin-bottom: 16rpx;
+  }
+
+  &__recorded-btns {
+    display: flex;
+    gap: 16rpx;
+    justify-content: center;
+  }
+
+  &__recorded-btn {
+    padding: 12rpx 28rpx;
+    border-radius: $radius-lg;
+    transition: all 0.2s;
+
+    &--reset {
+      background: #fff;
+      border: 1rpx solid $zinc-200;
+    }
+
+    &--play {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1rpx solid rgba(139, 92, 246, 0.4);
+    }
+
+    &--confirm {
+      background: $primary-500;
+    }
+  }
+
+  &__recorded-btn-text {
+    font-size: 22rpx;
+    color: $zinc-700;
+    font-weight: 700;
+
+    &--white {
+      color: #fff;
+    }
+  }
+
+  &__recorded-btn--play &__recorded-btn-text {
+    color: $primary-500;
+  }
+
+  // ===== 声音列表 =====
+  &__voices-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+    margin-bottom: 16rpx;
+  }
+
+  &__voice-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 20rpx 24rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid rgba($zinc-200, 0.6);
+    margin-bottom: 12rpx;
+    box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.03);
+  }
+
+  &__voice-left {
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+  }
+
+  &__voice-icon {
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 50%;
+    background: $zinc-100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__voice-icon-text {
+    font-size: 28rpx;
+  }
+
+  &__voice-name {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+  }
+
+  &__voice-meta {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    margin-top: 4rpx;
+  }
+
+  &__voice-meta-text {
+    font-size: 18rpx;
+    color: $zinc-400;
+  }
+
+  &__voice-meta-sep {
+    font-size: 18rpx;
+    color: $zinc-300;
+  }
+
+  &__voice-del {
+    font-size: 28rpx;
+    padding: 8rpx;
+  }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1); }
+}

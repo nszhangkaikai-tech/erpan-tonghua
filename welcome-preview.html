@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>耳畔童话 · 登录页预览</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a2e;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  /* 手机外框 */
+  .phone {
+    position: relative;
+    width: 390px;
+    height: 844px;
+    max-height: 96vh;
+    border-radius: 44px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    background: #000;
+  }
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('miniprogram/src/assets/login-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  /* 顶部压暗 + 底部提亮（模拟小程序 scrim） */
+  .scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(11,18,48,0.4) 0%, rgba(11,18,48,0) 26%),
+      linear-gradient(0deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 30%);
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 24px 40px;
+  }
+  /* 品牌区 */
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    animation: fadeDown 0.7s ease-out both;
+  }
+  .logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22), 0 0 0 3px rgba(255,255,255,0.18);
+  }
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slogan {
+    font-size: 13px;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+  }
+  /* 底部 */
+  .bottom {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    animation: fadeUp 0.8s ease-out 0.15s both;
+  }
+  .panel {
+    width: 100%;
+    background: rgba(255,255,255,0.78);
+    border: 1px solid rgba(255,255,255,0.65);
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 6px 18px rgba(68,94,141,0.18);
+  }
+  .login-btn {
+    width: 100%;
+    height: 48px;
+    background: #07c160;
+    color: #fff;
+    border: none;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(7,193,96,0.3);
+    cursor: pointer;
+  }
+  .login-btn svg { width: 18px; height: 18px; color: #fff; }
+  .protocol {
+    text-align: center;
+    font-size: 10px;
+    color: #243024;
+    line-height: 1.5;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.7);
+  }
+  @keyframes fadeDown { from { opacity:0; transform: translateY(-12px);} to { opacity:1; transform: translateY(0);} }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(12px);} to { opacity:1; transform: translateY(0);} }
+</style>
+</head>
+<body>
+  <div class="phone">
+    <div class="bg"></div>
+    <div class="scrim"></div>
+    <div class="content">
+      <div class="header">
+        <div class="logo">
+          <img src="miniprogram/src/assets/login-logo.png" alt="耳畔童话">
+        </div>
+        <div class="slogan">让爱与陪伴，留在每一个睡前故事里</div>
+      </div>
+      <div class="bottom">
+        <div class="panel">
+          <button class="login-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            微信一键快速登录
+          </button>
+        </div>
+        <div class="protocol">登录即代表您已同意《耳畔童话用户协议》和《儿童信息保护政策》</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

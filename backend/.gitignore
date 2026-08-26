@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+logs/
+public/storage/
+public/audio/
+src/users.json
+src/.host_secret
+src/data.json

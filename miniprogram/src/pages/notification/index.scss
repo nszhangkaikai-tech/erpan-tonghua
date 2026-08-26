@@ -1,0 +1,138 @@
+@import '../../styles/tokens.scss';
+
+.notif {
+  min-height: 100vh;
+  background: $zinc-50;
+  padding: 24rpx 24rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 28rpx;
+    background: #fff;
+    border-bottom: 1rpx solid rgba($zinc-200, 0.8);
+    flex-shrink: 0;
+  }
+
+  &__header-title {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+  }
+
+  &__header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+  }
+
+  &__header-btn {
+    font-size: 20rpx;
+    color: $zinc-500;
+    font-weight: 600;
+
+    &--bold {
+      color: $zinc-900;
+      font-weight: 700;
+    }
+  }
+
+  &__header-sep {
+    font-size: 20rpx;
+    color: $zinc-200;
+  }
+
+  &__list {
+    flex: 1;
+  }
+
+  &__list-inner {
+    padding: 20rpx 24rpx 160rpx;
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120rpx 0;
+    gap: 16rpx;
+  }
+
+  &__empty-icon {
+    font-size: 64rpx;
+  }
+
+  &__empty-text {
+    font-size: 24rpx;
+    color: $zinc-400;
+  }
+
+  &__card {
+    position: relative;
+    background: #fff;
+    padding: 24rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid $zinc-200;
+    margin-bottom: 16rpx;
+    box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.03);
+
+    &--read {
+      opacity: 0.6;
+      border-color: $zinc-100;
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    top: 16rpx;
+    right: 16rpx;
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 50%;
+    background: $zinc-900;
+  }
+
+  &__card-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+    line-height: 1.4;
+    padding-right: 32rpx;
+  }
+
+  &__card-content {
+    display: block;
+    font-size: 20rpx;
+    color: $zinc-500;
+    line-height: 1.6;
+    margin-top: 8rpx;
+  }
+
+  &__card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16rpx;
+    margin-top: 16rpx;
+    border-top: 1rpx solid $zinc-100;
+  }
+
+  &__card-type {
+    font-size: 18rpx;
+    color: $zinc-400;
+  }
+
+  &__card-time {
+    font-size: 18rpx;
+    color: $zinc-400;
+  }
+}

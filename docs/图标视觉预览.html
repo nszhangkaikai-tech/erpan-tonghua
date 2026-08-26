@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伴梦童话 · 图标视觉预览</title>
+<style>
+/* ============================================================
+   以下 CSS 由 src/components/Icon/index.scss 编译而来（rpx→px），
+   与小程序内实际渲染 1:1 一致。
+   ============================================================ */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.icon-vector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-play {
+  width: 0;
+  height: 0;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-style: solid;
+}
+.icon-pause {
+  display: flex;
+  gap: 6px;
+}
+.icon-plus,
+.icon-x {
+  position: relative;
+}
+.icon-heart {
+  position: relative;
+  width: var(--h-size);
+  height: var(--h-size);
+  transform: rotate(-45deg);
+}
+.icon-heart::before, .icon-heart::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--h-size) / 2);
+  height: calc(var(--h-size) / 2);
+  border-radius: 50%;
+  background: var(--h-fill);
+  border: 2px solid var(--h-color);
+  box-sizing: border-box;
+}
+.icon-heart::before { top: 0; left: 0; }
+.icon-heart::after { top: 0; right: 0; }
+.icon-heart {
+  background: var(--h-fill);
+  border: 2px solid var(--h-color);
+}
+.icon--heart-filled .icon-heart { border-color: var(--h-color); }
+.icon-star {
+  width: var(--st-size);
+  height: var(--st-size);
+  background: var(--st-fill);
+  border: 2px solid var(--st-color);
+  box-sizing: border-box;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.icon-search { position: relative; width: var(--sr-size); height: var(--sr-size); }
+.icon-search::before {
+  content: ""; position: absolute; top: 0; left: 0;
+  width: var(--sr-ring); height: var(--sr-ring);
+  border: var(--sr-stroke) solid var(--sr-color); border-radius: 50%; box-sizing: border-box;
+}
+.icon-search::after {
+  content: ""; position: absolute; bottom: 4%; right: 4%;
+  width: 35%; height: var(--sr-stroke); background: var(--sr-color);
+  transform: rotate(45deg); transform-origin: right center;
+}
+.icon-clock { position: relative; width: var(--cl-size); height: var(--cl-size); }
+.icon-clock::before {
+  content: ""; position: absolute; inset: 0;
+  border: var(--cl-stroke) solid var(--cl-color); border-radius: 50%; box-sizing: border-box;
+}
+.icon-clock::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: 38%; height: var(--cl-stroke); background: var(--cl-color);
+  transform: translate(-2%, -50%) rotate(-30deg); transform-origin: left center;
+  box-shadow: 0 -28% 0 0 var(--cl-color);
+}
+.icon-user-css { position: relative; width: var(--us-size); height: var(--us-size); }
+.icon-user-css::before {
+  content: ""; position: absolute; top: 6%; left: 50%; transform: translateX(-50%);
+  width: 38%; height: 38%; border: 2px solid var(--us-color); border-radius: 50%; box-sizing: border-box;
+}
+.icon-user-css::after {
+  content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 72%; height: 40%; border: 2px solid var(--us-color); border-top: none;
+  border-radius: 0 0 9999px 9999px; box-sizing: border-box;
+}
+.icon-home-css { position: relative; width: var(--ho-size); height: var(--ho-size); }
+.icon-home-css::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0;
+  border-left: calc(var(--ho-size) / 2) solid transparent;
+  border-right: calc(var(--ho-size) / 2) solid transparent;
+  border-bottom: calc(var(--ho-size) / 2) solid var(--ho-color);
+}
+.icon-home-css::after {
+  content: ""; position: absolute; bottom: 0; left: 12%; width: 76%; height: 56%;
+  background: var(--ho-color); box-sizing: border-box; box-shadow: inset 0 -36% 0 0 transparent;
+}
+.icon-folder-css { position: relative; width: var(--fo-size); height: var(--fo-size); }
+.icon-folder-css::before {
+  content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 72%;
+  border: 2px solid var(--fo-color); border-radius: 4px; box-sizing: border-box;
+}
+.icon-folder-css::after {
+  content: ""; position: absolute; top: 0; left: 0; width: 42%; height: 22%;
+  border: 2px solid var(--fo-color); border-bottom: none; border-radius: 4px 4px 0 0; box-sizing: border-box;
+  box-shadow: 0 -2px 0 0 var(--fo-color);
+}
+.icon-trash { position: relative; width: var(--tr-size); height: var(--tr-size); }
+.icon-trash::before {
+  content: ""; position: absolute; bottom: 0; left: 18%; width: 64%; height: 65%;
+  border: 2px solid var(--tr-color); border-top: none; border-radius: 0 0 6px 6px; box-sizing: border-box;
+}
+.icon-trash::after {
+  content: ""; position: absolute; top: 22%; left: 10%; width: 80%; height: 8%;
+  background: var(--tr-color); border-radius: 2px;
+  box-shadow: 0 -8px 0 -2px var(--tr-color), 0 -8px 0 -3px var(--tr-color);
+}
+.icon-edit { position: relative; width: var(--ed-size); height: var(--ed-size); }
+.icon-edit::before {
+  content: ""; position: absolute; top: 50%; left: 50%; width: 60%; height: 16%;
+  background: var(--ed-color); transform: translate(-50%, -50%) rotate(-45deg); border-radius: 2px;
+}
+.icon-edit::after {
+  content: ""; position: absolute; top: 12%; left: 12%; width: 0; height: 0;
+  border-left: calc(var(--ed-size) / 5) solid transparent;
+  border-right: calc(var(--ed-size) / 5) solid transparent;
+  border-bottom: calc(var(--ed-size) / 5) solid var(--ed-color); transform: rotate(-45deg);
+}
+.icon-refresh { position: relative; width: var(--rf-size); height: var(--rf-size); }
+.icon-refresh::before {
+  content: ""; position: absolute; inset: 0; border: var(--rf-stroke) solid var(--rf-color);
+  border-radius: 50%; box-sizing: border-box; border-top-color: transparent; transform: rotate(45deg);
+}
+.icon-refresh::after {
+  content: ""; position: absolute; top: -4%; right: 18%; width: 0; height: 0;
+  border-left: calc(var(--rf-size) / 5) solid transparent;
+  border-right: calc(var(--rf-size) / 5) solid transparent;
+  border-bottom: calc(var(--rf-size) / 5) solid var(--rf-color); transform: rotate(80deg);
+}
+.icon-moon-css { position: relative; width: var(--mo-size); height: var(--mo-size); }
+.icon-moon-css::before {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--mo-color);
+}
+.icon-moon-css::after {
+  content: ""; position: absolute; top: -8%; right: -8%; width: 80%; height: 80%;
+  border-radius: 50%; background: #fff;
+}
+.icon--moon .icon-moon-css::after { background: #18181b; }
+.icon-primitive { position: relative; width: var(--ic-size); height: var(--ic-size); box-sizing: border-box; }
+.icon-bell-css::before {
+  content: ""; position: absolute; top: 12%; left: 18%; width: 64%; height: 64%;
+  border: 2px solid var(--ic-color); border-bottom: 0; border-radius: 50% 50% 12% 12%; box-sizing: border-box;
+}
+.icon-bell-css::after {
+  content: ""; position: absolute; left: 12%; bottom: 12%; width: 76%; height: 12%;
+  border-radius: 999px; background: var(--ic-color); box-shadow: 0 8px 0 -1px var(--ic-color);
+}
+.icon-mic-css::before {
+  content: ""; position: absolute; top: 6%; left: 31%; width: 38%; height: 58%;
+  border: 2px solid var(--ic-color); border-radius: 999px; box-sizing: border-box;
+}
+.icon-mic-css::after {
+  content: ""; position: absolute; left: 20%; bottom: 8%; width: 60%; height: 48%;
+  border: 2px solid var(--ic-color); border-top: 0; border-radius: 0 0 999px 999px; box-sizing: border-box;
+  box-shadow: 0 7px 0 -5px var(--ic-color);
+}
+.icon-volume-css::before {
+  content: ""; position: absolute; left: 8%; top: 35%; width: 24%; height: 30%;
+  background: var(--ic-color); clip-path: polygon(0 25%, 45% 25%, 100% 0, 100% 100%, 45% 75%, 0 75%);
+}
+.icon-volume-css::after {
+  content: ""; position: absolute; right: 8%; top: 20%; width: 50%; height: 60%;
+  border: 2px solid var(--ic-color); border-left: 0; border-top-color: transparent; border-bottom-color: transparent;
+  border-radius: 0 999px 999px 0; box-sizing: border-box;
+}
+.icon-gift-css {
+  border: 2px solid var(--ic-color); border-radius: 4px;
+  background: linear-gradient(90deg, transparent 43%, var(--ic-color) 43%, var(--ic-color) 57%, transparent 57%);
+}
+.icon-gift-css::before {
+  content: ""; position: absolute; left: -4%; top: 25%; width: 108%; height: 12%; background: var(--ic-color);
+}
+.icon-gift-css::after {
+  content: ""; position: absolute; left: 29%; top: 2%; width: 42%; height: 24%;
+  border: 2px solid var(--ic-color); border-bottom: 0; border-radius: 999px 999px 0 0; box-sizing: border-box;
+}
+.icon-award-css::before {
+  content: ""; position: absolute; top: 4%; left: 19%; width: 62%; height: 62%;
+  border: 2px solid var(--ic-color); border-radius: 50%; box-sizing: border-box;
+}
+.icon-award-css::after {
+  content: ""; position: absolute; left: 31%; bottom: 2%; width: 38%; height: 42%;
+  border-left: 2px solid var(--ic-color); border-right: 2px solid var(--ic-color);
+  transform: skewX(-18deg); box-sizing: border-box;
+}
+.icon-sparkles-css::before {
+  content: ""; position: absolute; top: 22%; left: 22%; width: 56%; height: 56%;
+  background: var(--ic-color); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+.icon-sparkles-css::after {
+  content: ""; position: absolute; top: 4%; right: 8%; width: 18%; height: 18%;
+  background: var(--ic-color); transform: rotate(45deg); box-shadow: -20px 50px 0 -3px var(--ic-color);
+}
+.icon-book-open-css::before {
+  content: ""; position: absolute; inset: 12% 5% 10%;
+  border: 2px solid var(--ic-color); border-radius: 4px; box-sizing: border-box;
+  background: linear-gradient(90deg, transparent 48%, var(--ic-color) 48%, var(--ic-color) 52%, transparent 52%);
+}
+.icon-book-open-css::after {
+  content: ""; position: absolute; left: 13%; right: 13%; bottom: 24%; height: 2px;
+  background: var(--ic-color); box-shadow: 0 -10px 0 -0.5px var(--ic-color);
+}
+.icon-compass-css { border: 2px solid var(--ic-color); border-radius: 50%; }
+.icon-compass-css::before {
+  content: ""; position: absolute; left: 42%; top: 13%; width: 16%; height: 74%;
+  background: var(--ic-color); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); transform: rotate(38deg);
+}
+.icon-compass-css::after {
+  content: ""; position: absolute; inset: 42%; border-radius: 50%; background: var(--ic-color);
+}
+.icon-share-css::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 18% 50%, var(--ic-color) 0 12%, transparent 14%),
+              radial-gradient(circle at 78% 20%, var(--ic-color) 0 12%, transparent 14%),
+              radial-gradient(circle at 78% 80%, var(--ic-color) 0 12%, transparent 14%);
+}
+.icon-share-css::after {
+  content: ""; position: absolute; left: 23%; top: 42%; width: 54%; height: 12%;
+  background: var(--ic-color); transform: rotate(-28deg); box-shadow: 0 18px 0 0 var(--ic-color);
+}
+.icon-copy-css::before, .icon-copy-css::after {
+  content: ""; position: absolute; width: 58%; height: 62%;
+  border: 2px solid var(--ic-color); border-radius: 4px; box-sizing: border-box;
+}
+.icon-copy-css::before { left: 8%; top: 8%; }
+.icon-copy-css::after { right: 8%; bottom: 8%; background: #fff; }
+.icon-settings-css {
+  border: 3px solid var(--ic-color); border-radius: 50%;
+  box-shadow: 0 -8px 0 -4px var(--ic-color), 0 8px 0 -4px var(--ic-color), 8px 0 0 -4px var(--ic-color), -8px 0 0 -4px var(--ic-color);
+}
+.icon-settings-css::before {
+  content: ""; position: absolute; inset: 31%; border: 2px solid var(--ic-color); border-radius: 50%; box-sizing: border-box;
+}
+.icon-info-css { border: 2px solid var(--ic-color); border-radius: 50%; }
+.icon-info-css::before {
+  content: ""; position: absolute; left: 46%; top: 30%; width: 8%; height: 42%;
+  border-radius: 999px; background: var(--ic-color);
+}
+.icon-info-css::after {
+  content: ""; position: absolute; left: 43%; top: 16%; width: 14%; height: 14%;
+  border-radius: 50%; background: var(--ic-color);
+}
+.icon-headphones-css::before {
+  content: ""; position: absolute; left: 12%; top: 10%; width: 76%; height: 76%;
+  border: 2px solid var(--ic-color); border-bottom: 0; border-radius: 999px 999px 0 0; box-sizing: border-box;
+}
+.icon-headphones-css::after {
+  content: ""; position: absolute; left: 8%; bottom: 8%; width: 18%; height: 35%;
+  border-radius: 5px; background: var(--ic-color); box-shadow: 66px 0 0 0 var(--ic-color);
+}
+.icon-library-css::before {
+  content: ""; position: absolute; left: 13%; bottom: 10%; width: 14%; height: 72%;
+  border-radius: 2px; background: var(--ic-color); box-shadow: 24px 0 0 0 var(--ic-color), 48px 0 0 0 var(--ic-color);
+}
+.icon-library-css::after {
+  content: ""; position: absolute; left: 8%; bottom: 4%; width: 84%; height: 8%;
+  border-radius: 999px; background: var(--ic-color);
+}
+.icon-logout-css::before {
+  content: ""; position: absolute; left: 12%; top: 10%; width: 42%; height: 80%;
+  border: 2px solid var(--ic-color); border-radius: 4px; box-sizing: border-box;
+}
+.icon-logout-css::after {
+  content: ""; position: absolute; right: 5%; top: 43%; width: 54%; height: 12%;
+  background: var(--ic-color); box-shadow: 8px -10px 0 -2px var(--ic-color), 8px 10px 0 -2px var(--ic-color);
+}
+.icon-message-circle-css { border: 2px solid var(--ic-color); border-radius: 50%; box-sizing: border-box; }
+.icon-message-circle-css::before {
+  content: ""; position: absolute; left: 15%; bottom: -10%; width: 22%; height: 22%;
+  background: var(--ic-color); clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.icon-message-circle-css::after {
+  content: ""; position: absolute; left: 31%; top: 45%; width: 10%; height: 10%;
+  border-radius: 50%; background: var(--ic-color); box-shadow: 12px 0 0 0 var(--ic-color), 24px 0 0 0 var(--ic-color);
+}
+
+/* ============================================================
+   页面骨架样式
+   ============================================================ */
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 32px 24px 64px;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f4f4f5; color: #18181b;
+}
+.header { max-width: 1080px; margin: 0 auto 28px; }
+.header h1 { font-size: 24px; margin: 0 0 8px; }
+.header p { font-size: 13px; line-height: 1.7; color: #71717a; margin: 4px 0; }
+.header .swatch {
+  display: inline-block; width: 14px; height: 14px; border-radius: 3px;
+  background: #6C8EEF; vertical-align: -2px; margin: 0 4px;
+}
+.section { max-width: 1080px; margin: 0 auto 32px; }
+.section h2 {
+  font-size: 16px; color: #3f3f46; margin: 0 0 14px;
+  padding-left: 10px; border-left: 4px solid #6C8EEF;
+}
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 14px;
+}
+.card {
+  background: #fff; border-radius: 12px; padding: 16px 10px 12px;
+  text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  position: relative; transition: transform .15s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.card.dark { background: #18181b; }
+.card.dark .name, .card.dark .label, .card.dark .where { color: #e4e4e7; }
+.icon-box { height: 72px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+.name { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #18181b; word-break: break-all; }
+.label { font-size: 12px; color: #52525b; margin-top: 2px; }
+.where { font-size: 11px; color: #a1a1aa; margin-top: 3px; line-height: 1.4; }
+.tag-dead {
+  position: absolute; top: 8px; right: 8px;
+  font-size: 10px; color: #fff; background: #ef4444;
+  padding: 1px 6px; border-radius: 999px;
+}
+.footer { max-width: 1080px; margin: 24px auto 0; font-size: 12px; color: #a1a1aa; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>伴梦童话 · 图标视觉预览</h1>
+  <p>本页 36 个图标 <b>1:1 还原自 <code>src/components/Icon</code> 组件</b>（tsx + scss 编译后的标准 CSS），与小程序内实际渲染一致。</p>
+  <p>演示色统一使用当前蓝主题 <span class="swatch"></span><code>#6C8EEF</code>；实际颜色由调用处的 <code>color</code> 属性决定（可任意传值）。</p>
+  <p>带 <span style="background:#ef4444;color:#fff;padding:1px 6px;border-radius:999px;font-size:10px;">未使用</span> 标记的为全项目无引用的死图标，可清理或留作备用。</p>
+</div>
+
+<div id="app"></div>
+
+<div class="footer">
+  共 36 个图标 · 纯 CSS 矢量绘制（border / 伪元素 / clip-path），无字体依赖，支持 size 与 color 动态定制。
+</div>
+
+<script>
+const COLOR = '#6C8EEF';
+const SIZE = 56; // 展示像素（约等于组件 size=56rpx）
+
+function p(n) { return n + 'px'; }
+function div(cls, style, vars) {
+  const d = document.createElement('div');
+  if (cls) d.className = cls;
+  if (style) for (const k in style) d.style[k] = style[k];
+  if (vars) for (const k in vars) d.style.setProperty(k, vars[k]);
+  return d;
+}
+
+// ── 渲染器（照搬 tsx 逻辑，rpx→px）────────────────────────────
+function renderHeart(size, color, filled) {
+  const s = size / 2, c = filled ? color : 'transparent';
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-heart', {}, { '--h-size': p(s * 1.4), '--h-color': color, '--h-fill': c }));
+  return vec;
+}
+function renderStar(size, color, filled) {
+  const s = size / 1.8, bg = filled ? color : 'transparent';
+  return div('icon-star', {}, { '--st-size': p(s), '--st-color': color, '--st-fill': bg });
+}
+function renderSearch(size, color) {
+  const s = size / 2, ring = s * 0.5, stroke = s * 0.08;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-search', {}, { '--sr-size': p(s), '--sr-ring': p(ring), '--sr-stroke': p(stroke), '--sr-color': color }));
+  return vec;
+}
+function renderClock(size, color) {
+  const s = size / 2, stroke = s * 0.06;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-clock', {}, { '--cl-size': p(s), '--cl-stroke': p(stroke), '--cl-color': color }));
+  return vec;
+}
+function renderUser(size, color) {
+  const s = size / 2;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-user-css', {}, { '--us-size': p(s), '--us-color': color }));
+  return vec;
+}
+function renderHome(size, color) {
+  const s = size / 2;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-home-css', {}, { '--ho-size': p(s), '--ho-color': color }));
+  return vec;
+}
+function renderFolder(size, color) {
+  const s = size / 2;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-folder-css', {}, { '--fo-size': p(s), '--fo-color': color }));
+  return vec;
+}
+function renderTrash(size, color) {
+  const s = size / 2;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-trash', {}, { '--tr-size': p(s), '--tr-color': color }));
+  return vec;
+}
+function renderEdit(size, color) {
+  const s = size / 2;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-edit', {}, { '--ed-size': p(s), '--ed-color': color }));
+  return vec;
+}
+function renderRefresh(size, color) {
+  const s = size / 2, stroke = s * 0.07;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-refresh', {}, { '--rf-size': p(s), '--rf-stroke': p(stroke), '--rf-color': color }));
+  return vec;
+}
+function renderMoon(size, color) {
+  const s = size / 2;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-moon-css', {}, { '--mo-size': p(s), '--mo-color': color }));
+  return vec;
+}
+function renderPrimitive(name, size, color) {
+  const s = size / 2;
+  const vec = div('icon-vector', { width: p(s), height: p(s) });
+  vec.appendChild(div('icon-primitive icon-' + name + '-css', {}, { '--ic-size': p(s), '--ic-color': color }));
+  return vec;
+}
+function renderPlay(size, color) {
+  const s = size / 2;
+  return div('icon-play', {
+    borderLeftColor: color, borderLeftWidth: p(s * 0.6),
+    borderTopWidth: p(s * 0.35), borderBottomWidth: p(s * 0.35),
+    borderLeftStyle: 'solid', borderTopStyle: 'solid', borderBottomStyle: 'solid',
+    borderTopColor: 'transparent', borderBottomColor: 'transparent'
+  });
+}
+function renderPause(size, color) {
+  const s = size / 2, w = s * 0.22, h = s * 0.7;
+  const c = div('icon-pause');
+  c.appendChild(div('', { width: p(w), height: p(h), background: color, borderRadius: '2px' }));
+  c.appendChild(div('', { width: p(w), height: p(h), background: color, borderRadius: '2px' }));
+  return c;
+}
+function renderChevron(size, color, dir) {
+  const s = size / 2, d = s * 0.35, w = s * 0.12;
+  const st = { width: p(d), height: p(d), transform: 'rotate(45deg)' };
+  if (dir === 'left') { st.borderLeft = p(w) + ' solid ' + color; st.borderBottom = p(w) + ' solid ' + color; }
+  else { st.borderRight = p(w) + ' solid ' + color; st.borderTop = p(w) + ' solid ' + color; }
+  return div('', st);
+}
+function renderArrowRight(size, color) {
+  const s = size / 2;
+  const c = div('', { display: 'flex', alignItems: 'center' });
+  c.appendChild(div('', { width: p(s * 0.6), height: p(s * 0.1), background: color }));
+  c.appendChild(div('', { width: '0', height: '0', borderLeft: p(s * 0.3) + ' solid ' + color, borderTop: p(s * 0.2) + ' solid transparent', borderBottom: p(s * 0.2) + ' solid transparent' }));
+  return c;
+}
+function renderPlus(size, color) {
+  const s = size / 2;
+  const c = div('icon-plus', { width: p(s * 0.7), height: p(s * 0.7) });
+  c.appendChild(div('', { position: 'absolute', top: '50%', left: '0', width: '100%', height: p(s * 0.1), background: color, transform: 'translateY(-50%)' }));
+  c.appendChild(div('', { position: 'absolute', left: '50%', top: '0', height: '100%', width: p(s * 0.1), background: color, transform: 'translateX(-50%)' }));
+  return c;
+}
+function renderCheck(size, color) {
+  const s = size / 2;
+  return div('', { width: p(s * 0.35), height: p(s * 0.6), borderRight: p(s * 0.12) + ' solid ' + color, borderBottom: p(s * 0.12) + ' solid ' + color, transform: 'rotate(45deg)', marginTop: p(-s * 0.1) });
+}
+function renderX(size, color) {
+  const s = size / 2;
+  const c = div('icon-x', { width: p(s * 0.6), height: p(s * 0.6) });
+  c.appendChild(div('', { position: 'absolute', top: '50%', left: '0', width: '100%', height: p(s * 0.08), background: color, transform: 'translateY(-50%) rotate(45deg)' }));
+  c.appendChild(div('', { position: 'absolute', top: '50%', left: '0', width: '100%', height: p(s * 0.08), background: color, transform: 'translateY(-50%) rotate(-45deg)' }));
+  return c;
+}
+
+// ── 注册表 ────────────────────────────────────────────────
+const REG = {
+  'heart':        (s, c) => renderHeart(s, c, false),
+  'heart-filled': (s, c) => renderHeart(s, c, true),
+  'star':         (s, c) => renderStar(s, c, false),
+  'search':       renderSearch,
+  'clock':        renderClock,
+  'user':         renderUser,
+  'home':         renderHome,
+  'folder':       renderFolder,
+  'trash':        renderTrash,
+  'edit':         renderEdit,
+  'refresh':      renderRefresh,
+  'moon':         renderMoon,
+  'message-circle': (s, c) => renderPrimitive('message-circle', s, c),
+  'play':           renderPlay,
+  'pause':          renderPause,
+  'chevron-left':   (s, c) => renderChevron(s, c, 'left'),
+  'chevron-right':  (s, c) => renderChevron(s, c, 'right'),
+  'arrow-right':    renderArrowRight,
+  'plus':           renderPlus,
+  'check':          renderCheck,
+  'x':              renderX,
+  'bell':           (s, c) => renderPrimitive('bell', s, c),
+  'mic':            (s, c) => renderPrimitive('mic', s, c),
+  'volume':         (s, c) => renderPrimitive('volume', s, c),
+  'gift':           (s, c) => renderPrimitive('gift', s, c),
+  'award':          (s, c) => renderPrimitive('award', s, c),
+  'sparkles':       (s, c) => renderPrimitive('sparkles', s, c),
+  'book-open':      (s, c) => renderPrimitive('book-open', s, c),
+  'compass':        (s, c) => renderPrimitive('compass', s, c),
+  'share':          (s, c) => renderPrimitive('share', s, c),
+  'copy':           (s, c) => renderPrimitive('copy', s, c),
+  'settings':       (s, c) => renderPrimitive('settings', s, c),
+  'info':           (s, c) => renderPrimitive('info', s, c),
+  'headphones':     (s, c) => renderPrimitive('headphones', s, c),
+  'library':        (s, c) => renderPrimitive('library', s, c),
+  'logout':         (s, c) => renderPrimitive('logout', s, c),
+};
+
+// ── 元数据（用途 + 是否在使用）─────────────────────────────
+const META = {
+  'play':            { label: '播放',     where: '—', used: false },
+  'pause':           { label: '暂停',     where: '—', used: false },
+  'chevron-left':    { label: '左箭头',   where: '导航返回', used: true },
+  'chevron-right':   { label: '右箭头',   where: '—', used: false },
+  'arrow-right':     { label: '前进箭头', where: '—', used: false },
+  'plus':            { label: '加号',     where: '—', used: false },
+  'check':           { label: '对勾',     where: '勾选/完成', used: true },
+  'x':               { label: '关闭',     where: '关闭弹窗', used: true },
+  'book-open':       { label: '书本',     where: '故事/文库入口', used: true },
+  'library':         { label: '故事库',   where: 'tabBar', used: true },
+  'folder':          { label: '文件夹',   where: '—', used: false },
+  'home':            { label: '首页',     where: 'tabBar', used: true },
+  'star':            { label: '收藏',     where: '收藏', used: true },
+  'heart':           { label: '喜欢',     where: '点赞', used: true },
+  'heart-filled':    { label: '已喜欢',   where: '已点赞', used: true },
+  'moon':            { label: '月亮',     where: '睡眠/夜间', used: true },
+  'gift':            { label: '礼物',     where: '兑换码', used: true },
+  'award':           { label: '成就',     where: '成就/等级', used: true },
+  'copy':            { label: '复制',     where: '复制文案', used: true },
+  'bell':            { label: '通知',     where: '通知中心', used: true },
+  'mic':             { label: '麦克风',   where: '录音室/向导', used: true },
+  'volume':          { label: '音量',     where: '播放器音量', used: true },
+  'search':          { label: '搜索',     where: '故事库搜索', used: true },
+  'edit':            { label: '编辑',     where: '故事编辑', used: true },
+  'trash':           { label: '删除',     where: '列表删除', used: true },
+  'refresh':         { label: '刷新',     where: '刷新列表', used: true },
+  'share':           { label: '分享',     where: '分享', used: true },
+  'settings':        { label: '设置',     where: '—', used: false },
+  'info':            { label: '信息',     where: '关于', used: true },
+  'logout':          { label: '退出',     where: '设置退出', used: true },
+  'compass':         { label: '指南针',   where: '发现/引导', used: true },
+  'user':            { label: '用户',     where: '我的', used: true },
+  'headphones':      { label: '耳机',     where: '听故事', used: true },
+  'message-circle':  { label: '消息',     where: '通知/客服', used: true },
+  'sparkles':        { label: '魔法',     where: '生成故事', used: true },
+  'clock':           { label: '时钟',     where: '时长/历史', used: true },
+};
+
+// ── 分组（与图标清单.md 一致）──────────────────────────────
+const GROUPS = [
+  { title: '基础形状（8）', keys: ['play','pause','chevron-left','chevron-right','arrow-right','plus','check','x'] },
+  { title: '内容 / 对象（11）', keys: ['book-open','library','folder','home','star','heart','heart-filled','moon','gift','award','copy'] },
+  { title: '操作 / 功能（17）', keys: ['bell','mic','volume','search','edit','trash','refresh','share','settings','info','logout','compass','user','headphones','message-circle','sparkles','clock'] },
+];
+
+function buildIcon(name) {
+  const wrap = div('icon icon--' + name, { width: p(SIZE), height: p(SIZE), display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: '0' });
+  wrap.appendChild(REG[name](SIZE, COLOR));
+  return wrap;
+}
+function buildCard(name) {
+  const m = META[name];
+  const c = div('card');
+  if (name === 'moon') c.classList.add('dark');
+  const box = div('icon-box'); box.appendChild(buildIcon(name)); c.appendChild(box);
+  const nm = div('name'); nm.textContent = name; c.appendChild(nm);
+  const lb = div('label'); lb.textContent = m.label; c.appendChild(lb);
+  const wh = div('where'); wh.textContent = m.where; c.appendChild(wh);
+  if (!m.used) { const tag = div('tag-dead'); tag.textContent = '未使用'; c.appendChild(tag); }
+  return c;
+}
+
+const app = document.getElementById('app');
+GROUPS.forEach(g => {
+  const sec = div('section');
+  const h2 = document.createElement('h2'); h2.textContent = g.title; sec.appendChild(h2);
+  const grid = div('grid');
+  g.keys.forEach(k => grid.appendChild(buildCard(k)));
+  sec.appendChild(grid);
+  app.appendChild(sec);
+});
+</script>
+</body>
+</html>

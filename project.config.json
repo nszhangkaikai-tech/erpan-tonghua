@@ -1,0 +1,18 @@
+{
+  "miniprogramRoot": "miniprogram/dist/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "projectname": "erpan-tonghua",
+  "description": "耳畔童话小程序（云开发版）",
+  "appid": "wx268d1063ab9d6f2f",
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "enhance": false,
+    "postcss": false,
+    "minified": false,
+    "newFeature": true,
+    "nodeModules": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.0.0"
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-labelledby="title">
+  <title id="title">pause</title>
+<rect x="6.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/>
+    <rect x="13.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/>
+</svg>

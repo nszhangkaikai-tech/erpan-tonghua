@@ -1,0 +1,312 @@
+@import '../../styles/tokens.scss';
+
+.template {
+  min-height: 100vh;
+  background: $zinc-50;
+  padding: 24rpx 24rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    padding: 20rpx 24rpx 0;
+    flex-shrink: 0;
+  }
+
+  &__search {
+    position: relative;
+    margin-bottom: 16rpx;
+  }
+
+  &__search-icon {
+    position: absolute;
+    left: 24rpx;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24rpx;
+    z-index: 1;
+  }
+
+  &__search-input {
+    display: block;
+    width: 100%;
+    height: 76rpx;
+    min-height: 76rpx;
+    background: #fff;
+    border: 1rpx solid $zinc-200;
+    border-radius: $radius-xl;
+    padding: 16rpx 24rpx 16rpx 64rpx;
+    font-size: 24rpx;
+    color: $zinc-900;
+    box-sizing: border-box;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+
+  &__filters {
+    display: flex;
+    gap: 12rpx;
+    margin-bottom: 16rpx;
+    white-space: nowrap;
+  }
+
+  &__filter {
+    display: inline-flex;
+    padding: 8rpx 20rpx;
+    border-radius: $radius-full;
+    border: 1rpx solid $zinc-200;
+    background: #fff;
+    flex-shrink: 0;
+    transition: all 0.2s;
+
+    &--active {
+      background: $primary-500;
+      border-color: $primary-500;
+
+      .template__filter-text {
+        color: #fff;
+      }
+    }
+  }
+
+  &__filter-text {
+    font-size: 20rpx;
+    color: $zinc-500;
+    font-weight: 700;
+  }
+
+  &__list {
+    flex: 1;
+    padding-left: 24rpx;
+    padding-right: 24rpx;
+    padding-bottom: 160rpx;
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120rpx 0;
+  }
+
+  &__empty-icon {
+    font-size: 64rpx;
+    margin-bottom: 16rpx;
+  }
+
+  &__empty-text {
+    font-size: 24rpx;
+    color: $zinc-400;
+    font-weight: 500;
+  }
+
+  // 模板卡片
+  &__card {
+    display: flex;
+    gap: 20rpx;
+    background: #fff;
+    padding: 24rpx;
+    border-radius: $radius-2xl;
+    border: 1rpx solid rgba($zinc-200, 0.8);
+    margin-bottom: 16rpx;
+    box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.03);
+  }
+
+  &__card-cover {
+    width: 144rpx;
+    height: 192rpx;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: $zinc-50;
+    border: 1rpx solid $zinc-100;
+  }
+
+  &__card-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__card-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__card-placeholder-text {
+    font-size: 48rpx;
+  }
+
+  &__card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__card-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    flex-wrap: wrap;
+  }
+
+  &__card-name {
+    font-size: 24rpx;
+    font-weight: 700;
+    color: $zinc-900;
+  }
+
+  &__card-age {
+    background: $zinc-100;
+    padding: 2rpx 10rpx;
+    border-radius: 6rpx;
+  }
+
+  &__card-age-text {
+    font-size: 16rpx;
+    color: $zinc-800;
+    font-weight: 700;
+  }
+
+  &__card-theme {
+    background: rgba($orange-50, 0.8);
+    padding: 2rpx 10rpx;
+    border-radius: 6rpx;
+  }
+
+  &__card-theme-text {
+    font-size: 16rpx;
+    color: $orange-700;
+    font-weight: 700;
+  }
+
+  &__card-desc {
+    display: block;
+    font-size: 18rpx;
+    color: $zinc-500;
+    line-height: 1.5;
+    margin-top: 8rpx;
+    @include text-clamp-2;
+  }
+
+  &__card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6rpx;
+    margin-top: 8rpx;
+    flex-wrap: wrap;
+  }
+
+  &__card-meta-text {
+    display: flex;
+    align-items: center;
+    gap: 4rpx;
+    font-size: 16rpx;
+    color: $zinc-400;
+  }
+
+  &__card-meta-sep {
+    font-size: 16rpx;
+    color: $zinc-300;
+  }
+
+  &__card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16rpx;
+    border-top: 1rpx solid $zinc-50;
+    margin-top: 8rpx;
+  }
+
+  &__card-count {
+    display: flex;
+    align-items: center;
+    gap: 4rpx;
+    font-size: 16rpx;
+    color: $zinc-400;
+  }
+
+  &__card-use {
+    background: $primary-500;
+    padding: 8rpx 20rpx;
+    border-radius: $radius-lg;
+    transition: all 0.2s;
+
+    &:active {
+      background: $zinc-900;
+    }
+  }
+
+  &__card-use-text {
+    font-size: 18rpx;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  // 分页
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24rpx;
+    padding: 16rpx 24rpx 8rpx;
+    flex-shrink: 0;
+  }
+
+  &__page-btn {
+    width: 64rpx;
+    height: 64rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff;
+    border: 1rpx solid #e4e4e7;
+    transition: all 0.2s;
+
+    &--disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    &:active:not(&--disabled) {
+      background: #f4f4f5;
+    }
+  }
+
+  &__page-btn-text {
+    font-size: 36rpx;
+    color: #18181b;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__page-info {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    font-size: 24rpx;
+    color: #52525b;
+    font-weight: 500;
+    min-width: 96rpx;
+    justify-content: center;
+  }
+
+  &__page-current {
+    color: #18181b;
+    font-weight: 700;
+  }
+
+  &__page-sep {
+    color: #a1a1aa;
+  }
+
+  &__page-total {
+    color: #71717a;
+  }
+}

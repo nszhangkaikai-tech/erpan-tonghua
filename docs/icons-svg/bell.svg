@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-labelledby="title">
+  <title id="title">bell</title>
+<path d="M6.2 16.8h11.6l-1.5-2v-4.1a4.3 4.3 0 0 0-8.6 0v4.1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M10.2 19.2a2 2 0 0 0 3.6 0M4.5 17.8h15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+</svg>

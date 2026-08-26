@@ -1,0 +1,6 @@
+{
+  "name": "伴梦童话",
+  "description": "结合 AI 绘本生成与亲子声音克隆的个性化有声绘本微信小程序原型及后台管理系统",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_STEPFUN_API"]
+}

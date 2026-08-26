@@ -1,0 +1,9 @@
+{
+  "name": "mp-seed",
+  "version": "1.0.0",
+  "description": "临时数据播种云函数（用后删除）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

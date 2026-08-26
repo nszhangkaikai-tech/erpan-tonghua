@@ -1,0 +1,236 @@
+/**
+ * 耳畔童话 · 设计 Token 体系
+ * 基于中性灰（zinc）色板，与原型保持一致
+ */
+
+// ========================
+// 色板
+// ========================
+
+// 中性灰（zinc）—— 作为品牌 Neutral 色板
+$zinc-50:  #fafafa;
+$zinc-100: #f4f4f5;
+$zinc-200: #e4e4e7;
+$zinc-300: #d4d4d8;
+$zinc-400: #a1a1aa;
+$zinc-500: #71717a;
+$zinc-600: #52525b;
+$zinc-700: #3f3f46;
+$zinc-800: #27272a;
+$zinc-900: #18181b;
+$zinc-950: #09090b;
+
+// 主色（Primary）—— 柔和蓝种子色 #6C8EEF 衍生的色阶
+$primary-50:  #eaf1fe;
+$primary-100: #d6e3fd;
+$primary-200: #b3c9fb;
+$primary-300: #8fb0f9;
+$primary-400: #6c8eef; // 种子色
+$primary-500: #4f73e6; // 主按钮/选中态（略深以保证白字对比）
+$primary-600: #3f5fd6;
+$primary-700: #344bc0;
+$primary-800: #2c3e9c;
+$primary-900: #1f2c6e;
+
+// 副色（Secondary）—— 黄/金色（额度、提示、点亮态）
+$secondary-50:  #fef6e0;
+$secondary-100: #fde9b0;
+$secondary-200: #fbd97a;
+$secondary-300: #f5c451;
+$secondary-400: #eeb234;
+$secondary-500: #e0a02e;
+$secondary-600: #c8861f;
+$secondary-700: #a66a18;
+
+// 强调色（Tertiary/高亮）—— 橙/琥珀
+$orange-50:  #fff7ed;
+$orange-100: #ffedd5;
+$orange-200: #fed7aa;
+$orange-500: #f97316;
+$orange-600: #ea580c;
+$orange-700: #c2410c;
+
+// 微信绿
+$wechat-green: #07C160;
+$wechat-green-hover: #06ad56;
+
+// 红色（删除/错误）
+$red-500: #ef4444;
+$red-600: #dc2626;
+
+// 琥珀色（提示/等待）
+$amber-50: #fffbeb;
+$amber-100: #fef3c7;
+$amber-500: #f59e0b;
+$amber-800: #92400e;
+$amber-900: #78350f;
+$amber-950: #451a03;
+
+// ========================
+// 间距
+// ========================
+$space-1: 4rpx;
+$space-2: 8rpx;
+$space-3: 12rpx;
+$space-4: 16rpx;
+$space-5: 20rpx;
+$space-6: 24rpx;
+$space-8: 32rpx;
+$space-10: 40rpx;
+
+// ========================
+// 圆角
+// ========================
+$radius-sm: 8rpx;
+$radius-md: 12rpx;
+$radius-lg: 16rpx;
+$radius-xl: 20rpx;
+$radius-2xl: 24rpx;
+$radius-3xl: 32rpx;
+$radius-full: 9999rpx;
+
+// ========================
+// 字号（小程序 rpx）
+// ========================
+$text-xs:   20rpx;  // ~10px
+$text-sm:   22rpx;  // ~11px
+$text-base: 24rpx;  // ~12px
+$text-lg:   28rpx;  // ~14px
+$text-xl:   32rpx;  // ~16px
+$text-2xl:  40rpx;  // ~20px
+
+// ========================
+// 通用 Mixin
+// ========================
+
+// 卡片
+@mixin card($bg: #fff, $border: $zinc-200, $radius: $radius-2xl) {
+  background: $bg;
+  border: 1rpx solid $border;
+  border-radius: $radius;
+  padding: $space-4;
+}
+
+// 主按钮（品牌蓝底白字）
+@mixin btn-primary {
+  background: $primary-500;
+  color: #fff;
+  border: none;
+  border-radius: $radius-xl;
+  font-size: $text-sm;
+  font-weight: 700;
+  padding: $space-3 $space-4;
+  text-align: center;
+  transition: all 0.2s;
+
+  &:active {
+    background: $primary-600;
+    transform: scale(0.98);
+  }
+}
+
+// 次按钮（白底边框）
+@mixin btn-secondary {
+  background: #fff;
+  color: $zinc-700;
+  border: 1rpx solid $zinc-200;
+  border-radius: $radius-xl;
+  font-size: $text-sm;
+  font-weight: 700;
+  padding: $space-3 $space-4;
+  text-align: center;
+  transition: all 0.2s;
+
+  &:active {
+    background: $zinc-50;
+  }
+}
+
+// 标签按钮（选中/未选中）
+@mixin tag-btn($selected: false) {
+  padding: $space-2 $space-3;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: 500;
+  border: 1rpx solid;
+  transition: all 0.2s;
+
+  @if $selected {
+    background: $primary-500;
+    border-color: $primary-500;
+    color: #fff;
+    font-weight: 700;
+  } @else {
+    background: #fff;
+    border-color: $zinc-200;
+    color: $zinc-500;
+  }
+}
+
+// 自定义标签按钮（橙色高亮）
+@mixin tag-btn-custom($selected: false) {
+  padding: $space-2 $space-3;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: 500;
+  border: 1rpx solid;
+  transition: all 0.2s;
+
+  @if $selected {
+    background: $primary-500;
+    border-color: $primary-500;
+    color: #fff;
+    font-weight: 700;
+  } @else {
+    background: rgba($orange-50, 0.6);
+    border-color: $orange-200;
+    color: $orange-600;
+  }
+}
+
+// 输入框
+@mixin input-base {
+  width: 100%;
+  background: #fff;
+  border: 1rpx solid $zinc-200;
+  border-radius: $radius-xl;
+  padding: $space-2 $space-3;
+  font-size: $text-sm;
+  color: $zinc-900;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: $primary-400;
+    outline: none;
+  }
+}
+
+// 页面容器
+@mixin page-container {
+  min-height: 100vh;
+  background: $zinc-50;
+  padding: $space-4;
+  box-sizing: border-box;
+}
+
+// 分隔线
+@mixin divider {
+  border: none;
+  border-top: 1rpx solid $zinc-100;
+  margin: $space-3 0;
+}
+
+// 文本截断
+@mixin text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 多行截断（2行）
+@mixin text-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

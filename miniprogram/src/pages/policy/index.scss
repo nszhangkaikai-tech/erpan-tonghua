@@ -1,0 +1,122 @@
+@import '../../styles/tokens.scss';
+
+.policy {
+  min-height: 100vh;
+  background: $zinc-50;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  // ============ 自绘导航栏 ============
+  &__navbar {
+    display: flex;
+    align-items: center;
+    padding: calc(env(safe-area-inset-top) + 16rpx) 24rpx 16rpx;
+    background: #fff;
+    border-bottom: 1rpx solid $zinc-100;
+  }
+
+  &__back {
+    width: 56rpx;
+    height: 56rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  &__nav-title {
+    flex: 1;
+    text-align: center;
+    font-size: $text-lg;
+    font-weight: 800;
+    color: $zinc-900;
+  }
+
+  &__nav-spacer {
+    width: 56rpx;
+  }
+
+  // ============ Tab 切换 ============
+  &__tabs {
+    display: flex;
+    background: #fff;
+    padding: 0 24rpx;
+    gap: 12rpx;
+    border-bottom: 1rpx solid $zinc-100;
+  }
+
+  &__tab {
+    position: relative;
+    padding: 24rpx 8rpx;
+    margin-right: 16rpx;
+
+    &--active {
+      .policy__tab-text {
+        color: $primary-500;
+        font-weight: 800;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 8rpx;
+        right: 8rpx;
+        bottom: 0;
+        height: 6rpx;
+        border-radius: 6rpx;
+        background: $primary-500;
+      }
+    }
+  }
+
+  &__tab-text {
+    font-size: $text-base;
+    color: $zinc-500;
+    transition: all 0.2s;
+  }
+
+  // ============ 正文 ============
+  &__body {
+    flex: 1;
+    padding: 32rpx 32rpx calc(48rpx + env(safe-area-inset-bottom));
+    box-sizing: border-box;
+  }
+
+  &__meta {
+    display: block;
+    font-size: $text-xs;
+    color: $zinc-400;
+    margin-bottom: 28rpx;
+    line-height: 1.6;
+  }
+
+  &__section {
+    margin-bottom: 32rpx;
+  }
+
+  &__section-title {
+    display: block;
+    font-size: $text-lg;
+    font-weight: 800;
+    color: $zinc-900;
+    margin-bottom: 16rpx;
+    line-height: 1.5;
+  }
+
+  &__para {
+    display: block;
+    font-size: $text-base;
+    color: $zinc-700;
+    line-height: 1.9;
+    margin-bottom: 12rpx;
+    text-align: justify;
+  }
+
+  &__footer-space {
+    height: 40rpx;
+  }
+}
